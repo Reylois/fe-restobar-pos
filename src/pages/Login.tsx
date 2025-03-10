@@ -34,7 +34,7 @@ const Login: React.FC = () => {
                            value={pass}
                            className="p-3 h-[40px] w-full bg-white border-1 border-gray-500 rounded-md mt-1 mb-7 hover:border-[#B82132] hover:border-2" />
 
-                    <button type="submit" onClick={handleValidate} className="h-[40px] w-full bg-[#B82132] rounded-lg text-white cursor-pointer hover:bg-[#A31D1D]">LOGIN</button>
+                    <button type="submit" onClick={handleValidate} className="h-[40px] w-full shadow-[0px_3px_4px_gray] bg-[#B82132] rounded-lg text-white cursor-pointer hover:bg-[#A31D1D]">LOGIN</button>
                 </form>
                 <p className="text-red-600 text-[13px] text-center h-[40px] w-full">{error}</p>
                 <div className="flex justify-between">
