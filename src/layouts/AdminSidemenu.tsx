@@ -1,14 +1,6 @@
 import settings from "../assets/settings.svg";
-import { useLocation } from "react-router-dom";
-import { useState } from "react";
 
 const AdminSidemenu: React.FC = () => {
-    const [focus, setFocus] = useState(false);
-    const location: any = useLocation();
-
-    const onFocus = () => {
-        location === "/dashboard" && setFocus(true);
-    };
 
     return (
         <div className="h-screen w-[300px] bg-gray-600 rounded-lg">
