@@ -12,7 +12,7 @@ const Login: React.FC = () => {
 
     const handleValidate = (e: any) :void  => {
         e.preventDefault();
-        (email === user[0].email || username === user[0].username) && pass === user[0].password ? navigate("/dashboard") : setError("Invalid Credentials!");
+        (email === user[0].email || username === user[0].username) && pass === user[0].password ? navigate("/adminDashboard") : setError("Invalid Credentials!");
     };
 
     return (
