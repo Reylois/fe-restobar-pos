@@ -28,12 +28,12 @@ interface MenuLabel {
 }
 
 const label: MenuLabel[] = [
-{ menu: 'Dashboard', path: '/adminDashboard' },
-{ menu: 'Inventory', path: '/inventory' },
-{ menu: 'Sales', path: '/sales' },
-{ menu: 'Staff Information', path: '/staffInformation' },
-{ menu: 'Reports', path: '/reports' },
-{ menu: 'User Activity', path: '/userActivity' },
+  { menu: 'Dashboard', path: '/adminDashboard' },
+  { menu: 'Inventory', path: '/inventory' },
+  { menu: 'Sales', path: '/sales' },
+  { menu: 'Staff Information', path: '/staffInformation' },
+  { menu: 'Reports', path: '/reports' },
+  { menu: 'User Activity', path: '/userActivity' },
 ];
 
 const AdminDashboard: React.FC = () => {
