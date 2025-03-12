@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login: React.FC = () => {
     const [error, setError] = useState("");
@@ -8,7 +8,7 @@ const Login: React.FC = () => {
     const [username, setUsername] = useState("");
     const navigate = useNavigate();
 
-    const user = [{email: "john@example.com", username: "johndoe", password: "password"}];
+    const user = [{email: "chidrosafoodservices@gmail.com", username: "rolynjane", password: "password"}];
 
     const handleValidate = (e: any) :void  => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const Login: React.FC = () => {
         <div className="flex justify-center items-center h-screen w-screen bg-[url('./images/bg.jpeg')] bg-center bg-cover">
             
             {/* Signin form container */}
-            <div className="flex flex-col h-[430px] w-[400px] bg-[#FFFEC4] rounded-lg p-[40px]">
+            <div className="flex flex-col h-[495px] w-[400px] bg-[#FFFEC4] rounded-lg p-[40px]">
                 <h1 className="text-center font-bold text-[25px] text-pink-700">Nuna's Restobar</h1>
                 <form className="mt-5 mb-5">
                     <label className="text-[14px] font-medium ml-2 text-[#B82132]">Email or Username*</label>
@@ -37,12 +37,20 @@ const Login: React.FC = () => {
                     <button type="submit" onClick={handleValidate} className="h-[40px] w-full shadow-[0px_3px_4px_gray] bg-[#B82132] rounded-lg text-white cursor-pointer hover:bg-[#A31D1D]">LOGIN</button>
                 </form>
                 <p className="text-red-600 text-[13px] text-center h-[40px] w-full">{error}</p>
-                <div className="flex justify-between">
+                <div className="flex flex-col gap-4">
+                <div className="flex justify-between">  
                     <div className="flex gap-3 items-center">
                         <input type="checkbox" />
                         <p className="text-[14px]">Remember me</p>
                     </div>
                     <a className="text-[14px] text-center cursor-pointer">Forgot password?</a>
+                </div>
+                <div className="flex flex-col w-full justify-center gap-2 items-center">
+                    <p className="text-[14px] mr-3">Don't have an a ccount?</p>
+                    <Link to="/register">
+                        <p className="text-[14px] text-primary font-medium"><u>Signup Now!</u></p>
+                    </Link>
+                </div>
                 </div>
             </div>
         </div>

@@ -19,9 +19,9 @@ const Card: React.FC<CardProps> = ({ content }) => {
       {content.map((e, index) => (
         <div
           key={index}
-          className="flex flex-col w-fit h-fit p-[20px] bg-sky rounded-lg shadow-[2px_2px_5px_gray]"
+          className="flex flex-col w-fit h-fit p-[10px] bg-sky rounded-lg shadow-[2px_2px_5px_gray]"
         >
-          <div className="w-[300px]"></div>
+          <div className="w-[350px]"></div>
           <p className="text-[15px] font-medium mb-5 text-black">{e.category}</p>
           <p className="font-bold text-[30px] mb-5 text-primary">{e.value}</p>
           <div className="flex w-full gap-[50px]">

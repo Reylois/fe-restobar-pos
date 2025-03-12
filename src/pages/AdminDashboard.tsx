@@ -4,6 +4,7 @@ import Header from '../layouts/Header';
 import Sidemenu from '../layouts/AdminSidemenu';
 import Breadcrumb from '../components/Breadcrumb';
 import Card from '../components/Card';
+import BarGraph from '../components/BarGraph';
 
 // Define the type for the user object
 interface User {
@@ -30,32 +31,57 @@ const AdminDashboard: React.FC = () => {
   ];
 
   const sales: CardItem[] = [
-    { category: 'Sales Revenue', value: 'P70, 000.00', sub1: 'Last 30 Days' },
-  ];    
-
-  const orders: CardItem[] = [
-    { category: 'Total Orders', value: '350', sub1: 'In Store: 200', sub2: 'Deliveries: 150' },
+    {
+      category: 'Current Sales',
+      value: '₱50,000.00', // Total sales for the current period
+      sub1: 'Dine-In: ₱30,000.00', // Sales from dine-in customers
+      sub2: 'Takeout: ₱2,000.00', // Sales from takeout/delivery
+    },
+  ];
+  
+  const inventory: CardItem[] = [
+    {
+      category: 'Inventory Status',
+      value: 'Low Stock', // Total value of inventory
+      sub1: 'Last 30 Days', // Time frame for inventory tracking
+      sub2: 'Low Stock: 5 Items', // Items with low stock levels
+    },
+  ];
+  
+  const staffInformation: CardItem[] = [
+    {
+      category: 'Staff Information',
+      value: '15 Employees', // Total number of staff
+      sub1: 'Active: 12', // Number of active staff
+      sub2: 'On Leave: 3', // Number of staff on leave
+    },
+  ];
+  
+  const reports: CardItem[] = [
+    {
+      category: 'Reports',
+      value: '95% Accuracy', // Accuracy of reports
+      sub1: 'Generated: 50', // Total reports generated
+      sub2: 'Pending: 5', // Reports pending review
+    },
+  ];
+  
+  const userActivity: CardItem[] = [
+    {
+      category: 'User Activity',
+      value: '250 Logins', // Total user logins
+      sub1: 'Active Users: 200', // Number of active users
+      sub2: 'Inactive Users: 50', // Number of inactive users
+    },
   ];
 
-  const inventoryLevel: CardItem[] = [
-    { category: 'Inventory Level', value: 'Low Stock', sub1: 'Stock: 50', sub2: '5-Gallon Bottles' },
-  ];
-
-  const delivery: CardItem[] = [
-    { category: 'Delivery Performance', value: '93%', sub1: 'Delayed Deliveries: 10', sub2: 'One-Time Deliveries: 140' },
-  ];
-
-  const product: CardItem[] = [
-    { category: 'Best Selling Product', value: '5-Gallon Refill', sub1: 'Sold: 250', sub2: 'Revenue: P50, 000.00' },
-  ];
-
-  // Function to determine the current menu based on the pathname
-  const menu = (): string => {
-    if (location.pathname === '/adminDashboard') {
-      return 'DASHBOARD';
-    }
-    return '';
-  };
+    // Function to determine the current menu based on the pathname
+    const menu = (): string => {
+      if (location.pathname === '/adminDashboard') {
+        return 'DASHBOARD';
+      }
+      return '';
+    };
 
   return (
     <div className="h-screen w-screen flex flex-col gap-2">
@@ -64,12 +90,13 @@ const AdminDashboard: React.FC = () => {
         <Sidemenu user={user} />
         <div className="flex flex-col gap-5 w-full pr-[10px]">
           <Breadcrumb currentMenu={menu()} />
-          <div className="flex gap-5 flex-wrap">
-            <Card content={sales} />
-            <Card content={orders} />
-            <Card content={inventoryLevel} />
-            <Card content={product} />
-            <Card content={delivery} />
+          <div className="flex gap-6 flex-wrap">
+            <BarGraph />
+            <div className='flex flex-col gap-12'>
+              <Card content={inventory} />
+              <Card content={sales} />
+              <Card content={staffInformation} />
+            </div>
           </div>
         </div>
       </div>
