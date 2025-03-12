@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../layouts/Header';
-import Sidemenu from '../layouts/AdminSidemenu';
+import Sidemenu from '../layouts/Sidemenu';
 import Breadcrumb from '../components/Breadcrumb';
 import Card from '../components/Card';
 import BarGraph from '../components/BarGraph';
@@ -21,6 +21,20 @@ interface CardItem {
   sub1: string;
   sub2?: string; // Optional since not all items have sub2
 }
+
+interface MenuLabel {
+  menu: string;
+  path: string;
+}
+
+const label: MenuLabel[] = [
+{ menu: 'Dashboard', path: '/adminDashboard' },
+{ menu: 'Inventory', path: '/inventory' },
+{ menu: 'Sales', path: '/sales' },
+{ menu: 'Staff Information', path: '/staffInformation' },
+{ menu: 'Reports', path: '/reports' },
+{ menu: 'User Activity', path: '/userActivity' },
+];
 
 const AdminDashboard: React.FC = () => {
   const location = useLocation();
@@ -56,26 +70,8 @@ const AdminDashboard: React.FC = () => {
       sub2: 'On Leave: 3', // Number of staff on leave
     },
   ];
-  
-  const reports: CardItem[] = [
-    {
-      category: 'Reports',
-      value: '95% Accuracy', // Accuracy of reports
-      sub1: 'Generated: 50', // Total reports generated
-      sub2: 'Pending: 5', // Reports pending review
-    },
-  ];
-  
-  const userActivity: CardItem[] = [
-    {
-      category: 'User Activity',
-      value: '250 Logins', // Total user logins
-      sub1: 'Active Users: 200', // Number of active users
-      sub2: 'Inactive Users: 50', // Number of inactive users
-    },
-  ];
 
-    // Function to determine the current menu based on the pathname
+    // Function to determine the cur  rent menu based on the pathname
     const menu = (): string => {
       if (location.pathname === '/adminDashboard') {
         return 'DASHBOARD';
@@ -87,7 +83,7 @@ const AdminDashboard: React.FC = () => {
     <div className="h-screen w-screen flex flex-col gap-2">
       <Header />
       <div className="flex w-full h-full gap-3">
-        <Sidemenu user={user} />
+        <Sidemenu user={user} label={label} />
         <div className="flex flex-col gap-5 w-full pr-[10px]">
           <Breadcrumb currentMenu={menu()} />
           <div className="flex gap-6 flex-wrap">

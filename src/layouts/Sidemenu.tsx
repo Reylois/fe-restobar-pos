@@ -2,12 +2,6 @@ import React from 'react';
 import settings from '../assets/icons/settings.svg';
 import Menu from '../components/Menu';
 
-// Define the type for the label array
-interface MenuLabel {
-  menu: string;
-  path: string;
-}
-
 // Define the type for the user object
 interface User {
   id: number;
@@ -19,19 +13,15 @@ interface User {
 // Define the props for the Sidemenu component
 interface SidemenuProps {
   user: User[];
+  label: MenuLabel[];
 }
 
-// Define the label array with explicit type
-export const label: MenuLabel[] = [
-  { menu: 'Dashboard', path: '/adminDashboard' },
-  { menu: 'Inventory', path: '/inventory' },
-  { menu: 'Sales', path: '/sales' },
-  { menu: 'Staff Information', path: '/staffInformation' },
-  { menu: 'Reports', path: '/reports' },
-  { menu: 'User Activity', path: '/userActivity' },
-];
+interface MenuLabel {
+  menu: string;
+  path: string;
+}
 
-const Sidemenu: React.FC<SidemenuProps> = ({ user }) => {
+const Sidemenu: React.FC<SidemenuProps> = ({ user, label }) => {
   return (
     <div className="h-full w-[250px] bg-primary rounded-tr-lg p-[20px]">
       <div className="flex flex-col w-full h-[35%] rounded-tr-lg">
